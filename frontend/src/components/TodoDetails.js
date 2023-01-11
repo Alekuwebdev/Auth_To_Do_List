@@ -1,15 +1,24 @@
 import { useTodosContext } from "../hooks/useTodosContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 // date fns
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const TodoDetails = ({ todo }) => {
     const { dispatch } = useTodosContext()
+    const { user } = useAuthContext()
 
     const handleDelete = async () => {
-        
+
+        if(!user) {
+            return
+        }
+
         const response = await fetch('/api/todos/' + todo._id, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         })
         const json = await response.json()
 
@@ -22,7 +31,6 @@ const TodoDetails = ({ todo }) => {
         <div className="todo-details">
             <h1>{todo.title}</h1>
             <p>{todo.content}</p>
-            {/* <p>{todo.createdAt}</p> */}
             <p>{formatDistanceToNow(new Date(todo.createdAt), { addSuffix: true })}</p>
             <button onClick={handleDelete}>Delete</button>
         </div>

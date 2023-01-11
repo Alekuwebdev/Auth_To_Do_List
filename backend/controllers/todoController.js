@@ -1,9 +1,11 @@
-const { mongoose } = require('mongoose')
+const mongoose = require('mongoose')
 const Todo = require('../models/todoModel')
 
 // GET all todos
 const getTodos = async (req, res) => {
-    const todos = await Todo.find({}).sort({createdAt: -1})
+    const user_id = req.user._id
+
+    const todos = await Todo.find({user_id}).sort({createdAt: -1})
 
     res.status(200).json(todos)
 }
@@ -41,12 +43,13 @@ const createTodo = async (req, res) => {
         return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
     }
 
+    // add doc to db
     try {
-        const todo = await Todo.create({ title, content })
+        const user_id = req.user._id
+        const todo = await Todo.create({ title, content, user_id })
         res.status(200).json(todo)
-    } catch {
+    } catch (error) {
         res.status(400).json({ error: error.message })
-        console.log(error)
     }
 }
 
@@ -66,7 +69,6 @@ const deleteTodo = async (req, res) => {
 
     res.status(200).json(todo)
 }
-
 
 // UPDATE a todo
 const updateTodo = async (req, res) => {

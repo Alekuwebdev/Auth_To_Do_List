@@ -10,6 +10,10 @@ const todoSchema = new Schema({
     content: {
         type: String,
         require: true
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 }, { timestamps: true })
 

@@ -1,6 +1,7 @@
+
 import { useEffect } from "react";
 import { useTodosContext } from "../hooks/useTodosContext";
-
+import { useAuthContext } from "../hooks/useAuthContext"
 
 // components
 import TodoDetails from "../components/TodoDetails";
@@ -8,12 +9,15 @@ import TodoForm from "../components/TodoForm";
 
 const Home = () => {
     const {todos, dispatch} = useTodosContext()
+    const {user} = useAuthContext()
 
     useEffect(() => {
         const fetchTodos = async () => {
-
-            const response = await fetch('/api/todos')
-
+            const response = await fetch('/api/todos', {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
             const json = await response.json()
 
             if(response.ok) {
@@ -21,9 +25,11 @@ const Home = () => {
             }
         }
 
-        fetchTodos()
+        if(user) {
+            fetchTodos()
+        }
 
-    }, [dispatch])
+    }, [dispatch, user])
 
     return ( 
         <div className="home">

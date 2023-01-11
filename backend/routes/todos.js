@@ -7,9 +7,12 @@ const {
     deleteTodo,
     updateTodo 
 } = require('../controllers/todoController')
+const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
+// require auth for all todos routes
+router.use(requireAuth)
 
 // GET all todos
 router.get('/', getTodos)
