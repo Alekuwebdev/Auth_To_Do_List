@@ -1,66 +1,73 @@
-import { useState } from "react";
-import { useTodosContext } from "../hooks/useTodosContext";
+import { useState } from "react"
+import { useTodosContext } from "../hooks/useTodosContext"
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const TodoForm = () => {
-    const { dispatch } = useTodosContext()
+  const { dispatch } = useTodosContext()
+  const { user } = useAuthContext()
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [error, setError] = useState(null);
-    const [emptyFields, setEmptyFields] = useState([])
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+  const [error, setError] = useState(null)
+  const [emptyFields, setEmptyFields] = useState([])
 
-    // Function handleSubmit
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
-        const todo = {title, content}
-
-        const response = await fetch('/api/todos', {
-            method: 'POST',
-            body: JSON.stringify(todo),
-            headers: {
-                'Content-Type': "application/json"
-            }
-        })
-        const json = await response.json()
-
-        if(!response.ok) {
-            setError(json.error)
-            setEmptyFields(json.emptyFields)
-        }
-
-        if(response.ok) {
-            setTitle('')
-            setContent('')
-            setError(null)
-            setEmptyFields([])
-            dispatch({type: 'CREATE_TODO', payload: json})
-        }
+    if (!user) {
+      setError('You must be logged in')
+      return
     }
 
-    return ( 
-        <form className="create" onSubmit={handleSubmit}>
-            <h3>Add a New To Do</h3>
+    const todo = {title, content}
 
-            <label >Exercize Title:</label>
-            <input 
-                type="text"
-                onChange={(e) => setTitle(e.target.value)} 
-                value={title}
-                className={emptyFields.includes('title') ? 'error' : ''}
-            />
-            <label>Add Content:</label>
-            <input  
-                type="text"
-                onChange={(e) => setContent(e.target.value)}
-                value={content}
-                className={emptyFields.includes('content') ? 'error' : ''}
-            />
+    const response = await fetch('/api/todos', {
+      method: 'POST',
+      body: JSON.stringify(todo),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
+    const json = await response.json()
 
-            <button>Add To Do</button>
-            {error && <div className="error">{error}</div>}
-        </form>
-     );
+    if (!response.ok) {
+      setError(json.error)
+      setEmptyFields(json.emptyFields)
+    }
+    if (response.ok) {
+      setTitle('')
+      setContent('')
+      setError(null)
+      setEmptyFields([])
+      dispatch({type: 'CREATE_TODO', payload: json})
+    }
+  }
+
+  return (
+    <form className="create" onSubmit={handleSubmit}>
+      <h3>Add a New Todo</h3>
+
+      <label>Title:</label>
+      <input 
+        type="text"
+        onChange={(e) => setTitle(e.target.value)}
+        value={title}
+        className={emptyFields.includes('title') ? 'error' : ''}
+      />
+
+      <label>Content:</label>
+      <input 
+        type="text"
+        onChange={(e) => setContent(e.target.value)}
+        value={content}
+        className={emptyFields.includes('content') ? 'error' : ''}
+      />
+
+      <button>Add Todo</button>
+      {error && <div className="error">{error}</div>}
+    </form>
+  )
 }
- 
-export default TodoForm;
+
+export default TodoForm
