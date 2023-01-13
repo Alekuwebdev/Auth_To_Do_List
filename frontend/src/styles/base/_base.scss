@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-image: url("./../../../frontend/public/img/bannerbild.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+// Tablet: 768 x 1024
+@media only screen and (max-width: 768px) {
+    html {
+        background-image: url("./../../../frontend/public/img/tablet_background_1.jpg");
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    html {
+        background-image: url("./../../../frontend/public/img/mobile_background_1.jpg");
+    }
+}
+
+$color: green;
+

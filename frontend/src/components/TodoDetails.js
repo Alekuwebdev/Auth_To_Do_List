@@ -29,10 +29,12 @@ const TodoDetails = ({ todo }) => {
 
     return ( 
         <div className="todo-details">
-            <h1>{todo.title}</h1>
-            <p>{todo.content}</p>
-            <p>{formatDistanceToNow(new Date(todo.createdAt), { addSuffix: true })}</p>
-            <button onClick={handleDelete}>Delete</button>
+            <div>
+                <h3>{todo.title}</h3> <br />
+                <p>{todo.content}</p> <br />
+                <p>{formatDistanceToNow(new Date(todo.createdAt), { addSuffix: true })}</p>
+            </div>
+            <button onClick={handleDelete}>❌</button>
         </div>
      )
 }

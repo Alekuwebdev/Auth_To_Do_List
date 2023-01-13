@@ -1,0 +1,55 @@
+.intro_main {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40rem;
+    height: 20rem;
+    padding: 2rem;
+    background-color: #ccb48a7d;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+}
+
+// 425px
+@media only screen and (max-width: 425px) {
+    .intro_page {
+        width: 18rem;
+        height: 20rem;
+        h1 {
+            font-size: 1.2rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// 375px
+@media only screen and (max-width: 375px) {
+    .intro_page {
+        width: 15rem;
+        height: 25rem;
+    }
+}
+
+// 320px
+@media only screen and (max-width: 320px) {
+    .intro_page {
+        width: 12rem;
+        height: 28rem;
+    }
+}

@@ -1,0 +1,63 @@
+header {
+    background-color: #a8c1c1;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem;
+    margin: 0rem;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.112);
+    a {
+        text-decoration: none;
+        color: black;
+        padding: 0 0.2rem 0 0.2rem;
+        &:hover {
+            color: rgb(0, 0, 255);
+        }
+    }
+    div {
+        display: flex;
+        align-items: flex-end;
+    }
+    button {
+        padding: 0.2rem 1rem;
+        border-radius: 0.4rem;
+        &:hover {
+            transition: ease-in-out 500ms;
+            background-color: red;
+        }
+    }
+    p {
+        margin-right: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes example {
+    from {background-color: #a8c1c1;}
+    to {background-color: #FDF3EA;}
+  }
+
+
+  // 411 x 731
+@media only screen and (max-width: 425px) {
+    header {
+        a {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// 360 x 720
+@media only screen and (max-width: 375px) {
+    header {
+        a {
+            font-size: 0.7rem;
+        }
+    }
+}

@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-image: url("./../../../frontend/public/img/bannerbild.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    background-image: url("./../../../frontend/public/img/tablet_background_1.jpg");
+  }
+}
+@media only screen and (max-width: 425px) {
+  html {
+    background-image: url("./../../../frontend/public/img/mobile_background_1.jpg");
+  }
+}
+header {
+  background-color: #a8c1c1;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  position: sticky;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem;
+  margin: 0rem;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.112);
+}
+header a {
+  text-decoration: none;
+  color: black;
+  padding: 0 0.2rem 0 0.2rem;
+}
+header a:hover {
+  color: blue;
+}
+header div {
+  display: flex;
+  align-items: flex-end;
+}
+header button {
+  padding: 0.2rem 1rem;
+  border-radius: 0.4rem;
+}
+header button:hover {
+  transition: ease-in-out 500ms;
+  background-color: red;
+}
+header p {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+@keyframes example {
+  from {
+    background-color: #a8c1c1;
+  }
+  to {
+    background-color: #FDF3EA;
+  }
+}
+@media only screen and (max-width: 425px) {
+  header a {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  header a {
+    font-size: 0.7rem;
+  }
+}
+.home {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth_main {
+  /* background-image: url("./../../../frontend/public/img/bannerbild.jpg");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: cover;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92vh;
+}
+
+.create_main {
+  display: flex;
+  width: auto;
+}
+
+.signup,
+.login {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  border: 1px solid black;
+  background-color: #ccb48a7d;
+  border-radius: 1rem;
+}
+.signup h2,
+.login h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.signup input,
+.login input {
+  width: 20rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.signup button,
+.login button {
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+.signup button:hover,
+.login button:hover {
+  transition: ease-in-out;
+  background-color: #85921e81;
+  color: white;
+}
+
+.create {
+  border: 1px solid black;
+  position: fixed;
+  border-radius: 0.5rem;
+  height: 20rem;
+  padding: 1rem 1.5rem;
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ccb48a7d;
+}
+.create input,
+.create button {
+  border-radius: 0.3rem;
+  font-size: 1.5rem;
+}
+.create button {
+  width: 10rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .create {
+    left: 12%;
+    top: 6%;
+    height: 25%;
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .create {
+    height: 20%;
+    left: 3%;
+  }
+  .create h2,
+.create input,
+.create button {
+    font-size: 1.2rem;
+  }
+  .create button {
+    margin-top: 1rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .create {
+    top: 4%;
+  }
+}
+.todos {
+  margin-top: 2rem;
+  width: 75%;
+}
+.todos .todo-details {
+  margin: 1rem 2.2rem 0 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #e9f1da87;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+.todos h3 {
+  font-size: 1.7rem;
+}
+.todos button {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  height: 1.5rem;
+  border-radius: 0.3rem;
+  padding: 0.7rem;
+}
+.todos button:hover {
+  transition: ease-in-out 500ms;
+  background-color: red;
+  color: white;
+}
+
+@media only screen and (max-width: 1366px) {
+  .todos {
+    width: 68%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .todos {
+    margin-top: 50%;
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .todos {
+    margin-top: 55%;
+  }
+}
+.intro_main {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40rem;
+  height: 20rem;
+  padding: 2rem;
+  background-color: #ccb48a7d;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+.intro_page h1 {
+  text-align: center;
+}
+.intro_page p {
+  text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+  .intro_page {
+    width: 18rem;
+    height: 20rem;
+  }
+  .intro_page h1 {
+    font-size: 1.2rem;
+  }
+  .intro_page p {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .intro_page {
+    width: 15rem;
+    height: 25rem;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .intro_page {
+    width: 12rem;
+    height: 28rem;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

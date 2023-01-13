@@ -45,28 +45,30 @@ const TodoForm = () => {
   }
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a New Todo</h3>
+    <main className="create_main">
+      <form className="create" onSubmit={handleSubmit}>
+        <h2>Add a New Todo</h2>
 
-      <label>Title:</label>
-      <input 
-        type="text"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-        className={emptyFields.includes('title') ? 'error' : ''}
-      />
+        <label>Title: <br />
+        <input 
+          type="text"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          className={emptyFields.includes('title') ? 'error' : ''}
+        /></label>
 
-      <label>Content:</label>
-      <input 
-        type="text"
-        onChange={(e) => setContent(e.target.value)}
-        value={content}
-        className={emptyFields.includes('content') ? 'error' : ''}
-      />
+        <label>Content: <br />
+        <input 
+          type="text"
+          onChange={(e) => setContent(e.target.value)}
+          value={content}
+          className={emptyFields.includes('content') ? 'error' : ''}
+        /></label>
 
-      <button>Add Todo</button>
-      {error && <div className="error">{error}</div>}
-    </form>
+        <button>Add Todo</button> 
+        {error && <div className="error">{error}</div>}
+      </form>
+    </main>
   )
 }
 

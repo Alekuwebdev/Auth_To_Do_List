@@ -1,0 +1,91 @@
+.signup,
+.login {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    border: 1px solid black;
+    background-color: #ccb48a7d;
+    border-radius: 1rem;
+    h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    input {
+        width: 20rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+    button {
+        border-radius: 0.3rem;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        &:hover {
+            transition: ease-in-out;
+            background-color: #85921e81;
+            color: white;
+        }
+    }
+}
+
+
+// create form
+.create {
+    border: 1px solid black;
+    position: fixed;
+    border-radius: 0.5rem;
+    height: 20rem;
+    padding: 1rem 1.5rem;
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ccb48a7d;
+    input,
+    button {
+        border-radius: 0.3rem;
+        font-size: 1.5rem;
+    }
+    button {
+        width: 10rem;
+    }
+}
+
+// 1366 x 768
+@media only screen and (max-width: 1366px) {
+    
+}
+
+// 768 x 1024
+@media only screen and (max-width: 768px) {
+.create {
+            left: 12%;
+            top: 6%;
+            height: 25%;
+            width: 60%;
+        }
+}
+
+// 411 x 731
+@media only screen and (max-width: 425px) {
+    .create {
+        height: 20%;
+        left: 3%;
+        h2,    
+        input,
+        button {
+            font-size: 1.2rem;
+        } 
+        button {
+            margin-top: 1rem;
+        }  
+    }
+}
+
+// 375 x 812
+@media only screen and (max-width: 375px) {
+    .create {
+        top: 4%;
+    }
+}
+
