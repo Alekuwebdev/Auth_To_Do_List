@@ -24,7 +24,7 @@ app.use('/api/user', userRoutes)
 mongoose.set('strictQuery', false) // Removal of the impairment warning
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        app.listen((process.env.PORT || 3000) , () => {
+        app.listen(process.env.PORT , () => {
             console.log('listen on port', process.env.PORT)
         })
     })
