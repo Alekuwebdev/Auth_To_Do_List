@@ -10,7 +10,8 @@ export const useSignup = () => {
         setIsLoading(true)
         setError(true)
 
-        const response = await fetch('http://localhost:4000/api/user/signup', {
+        // const response = await fetch('http://localhost:4000/api/user/signup', {
+        const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/user/signup', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             
