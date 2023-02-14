@@ -14,7 +14,7 @@ const TodoDetails = ({ todo }) => {
             return
         }
 
-        const response = await fetch('/api/todos/' + todo._id, {
+        const response = await fetch('https://bespoke-unicorn-c72030.netlify.app/api/todos/' + todo._id, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`

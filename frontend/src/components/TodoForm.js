@@ -21,7 +21,7 @@ const TodoForm = () => {
 
     const todo = {title, content}
 
-    const response = await fetch('/api/todos', {
+    const response = await fetch('https://bespoke-unicorn-c72030.netlify.app/api/todos', {
       method: 'POST',
       body: JSON.stringify(todo),
       headers: {
