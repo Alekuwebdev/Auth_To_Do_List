@@ -11,7 +11,7 @@ const app = express()
 
 // cors
 app.use(cors({
-    // origin: 'http://localhost:3000'
+    //origin: 'http://localhost:3000'
     origin: 'https://bespoke-unicorn-c72030.netlify.app'
 }))
 
