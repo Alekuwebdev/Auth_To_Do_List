@@ -13,8 +13,8 @@ const Home = () => {
 
     useEffect(() => {
         const fetchTodos = async () => {
-            const response = await fetch(process.env.REACT_APP_TODOS, {
-            //const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/todos', {
+            //const response = await fetch(process.env.REACT_APP_TODOS, {
+            const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/todos', {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
