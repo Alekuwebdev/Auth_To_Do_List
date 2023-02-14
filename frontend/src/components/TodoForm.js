@@ -21,6 +21,7 @@ const TodoForm = () => {
 
     const todo = {title, content}
 
+    //const response = await fetch(process.env.REACT_APP_TODO_FORM, {
     const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/todos', {
       method: 'POST',
       body: JSON.stringify(todo),
