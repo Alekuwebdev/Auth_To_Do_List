@@ -15,7 +15,8 @@ const TodoDetails = ({ todo }) => {
         }
 
         //const response = await fetch(process.env.REACT_APP_TODO_DETAILS + todo._id, {
-        const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/todos/' + todo._id, {
+        //const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/todos/' + todo._id, {
+        const response = await fetch('https://calm-veil-worm.cyclic.app/api/todos/' + todo._id, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`

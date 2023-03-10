@@ -11,7 +11,8 @@ export const useSignup = () => {
         setError(true)
 
         //const response = await fetch(process.env.REACT_APP_SIGN_UP, {
-        const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/user/signup', {
+        //const response = await fetch('https://auth-to-do-list-backend.onrender.com/api/user/signup', {
+            const response = await fetch('https://calm-veil-worm.cyclic.app/api/user/signup', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             
